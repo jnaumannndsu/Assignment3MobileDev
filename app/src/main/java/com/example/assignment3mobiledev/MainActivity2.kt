@@ -18,6 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.assignment3mobiledev.ui.theme.Assignment3MobileDevTheme
 
@@ -46,7 +48,8 @@ fun SecondActivityLayout(modifier: Modifier = Modifier, context: Context) {
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "1st Challenge: Android is updated constantly"
+            text = "1st Challenge: Android is updated constantly",
+            modifier = Modifier.semantics { contentDescription = "challenge_text"}
         )
         Text(
             text = "2nd Challenge: There are many outdated tutorials / guides"
