@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <permission
+        android:name="com.example.assignment3mobiledev.MSE412"
+        android:label="@string/permlab_deadlyActivity"
+        android:description="@string/permdesc_deadlyActivity"
+        android:protectionLevel="dangerous" />
     <application
 
         android:allowBackup="true"
@@ -28,7 +32,8 @@
             android:theme="@style/Theme.Assignment3MobileDev" />
         <activity
             android:name=".MainActivity2"
-            android:exported="false"
+            android:exported="true"
+            android:permission="com.example.assignment3mobiledev.MSE412"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.Assignment3MobileDev" />
         <activity

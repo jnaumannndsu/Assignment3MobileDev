@@ -2,6 +2,7 @@ package com.example.assignment3mobiledev
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -24,6 +25,9 @@ import kotlin.jvm.java
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        val perms = arrayOf("com.example.assignment3mobiledev.MSE412")
+        val permnumber = 200
+        requestPermissions(perms, permnumber)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
@@ -33,7 +37,14 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
+@Override
+fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    when(requestCode) {
+        200 -> {
+            if((grantResults.isNotEmpty()) && grantResults[0] == PackageManager.PERMISSION_GRANTED) return
+        }
+    }
+}
 
 @Composable
 fun HomeScreenLayout(modifier: Modifier = Modifier, context: Context) {
